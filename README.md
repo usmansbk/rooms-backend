@@ -28,9 +28,11 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- Make sure you have Ruby on Rails set up properly on your computer
-- Clone or download this repo on your machine
-- Enter project directory
+```sh
+git clone https://github.com/usmansbk/rooms-backend.git
+
+cd ./rooms-backend
+```
 
 ### Install
 
