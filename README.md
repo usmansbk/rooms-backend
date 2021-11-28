@@ -81,18 +81,18 @@ rake db:migrate VERSION=0
 
 👤 **Simon**
 
-- GitHub: [@usmansbk](https://github.com/usmansbk)
-- LinkedIn: [Usman Suleiman Babakolo](https://linkedin.com/in/usmansbk)
+- GitHub: [@SimonGrchevski](https://github.com/SimonGrchevski)
+- LinkedIn: [Simon Grchevski](https://www.linkedin.com/in/simon-grchevski-682935209/)
 
 👤 **Olawale**
 
-- GitHub: [@usmansbk](https://github.com/usmansbk)
-- LinkedIn: [Usman Suleiman Babakolo](https://linkedin.com/in/usmansbk)
+- GitHub: [@olawale-o](https://github.com/olawale-o)
+- LinkedIn: [Omoogun Olawale](https://linkedin.com/in/olawaleomoogun)
 
 👤 **Denis**
 
-- GitHub: [@usmansbk](https://github.com/usmansbk)
-- LinkedIn: [Usman Suleiman Babakolo](https://linkedin.com/in/usmansbk)
+- GitHub: [@denisdiaconu](https://github.com/denisdiaconu)
+- LinkedIn: [Denis Andrei Diaconu](https://www.linkedin.com/in/denis-diaconu-1394091b7/)
 
 ## 🤝 Contributing
 
