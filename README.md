@@ -53,6 +53,15 @@ rails db:create
 rails db:migrate
 ```
 
+### Generate JWT Secret
+
+```sh
+bundle exec rake secret
+
+# in .env file, set to generated secret
+DEVISE_JWT_SECRET_KEY=xyx
+```
+
 ### Run
 
 ```sh
