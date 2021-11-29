@@ -62,4 +62,15 @@ RSpec.describe 'Auth API', type: :request do
       end
     end
   end
+
+  path '/logout' do
+    delete 'Log out current user' do
+      tags 'Auth'
+      consumes 'application/json'
+
+      response '204', 'idempotent' do
+        run_test!
+      end
+    end
+  end
 end
