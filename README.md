@@ -33,8 +33,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- [Ruby](https://www.ruby-lang.org/en/)
-- [Rails](https://gorails.com/)
+- [Ruby v3.0.2](https://www.ruby-lang.org/en/)
+- [Rails v6.1.4](https://gorails.com/)
 
 ### Setup
 
