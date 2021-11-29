@@ -29,6 +29,7 @@ To get a local copy up and running follow these simple example steps.
 
 - [Ruby v3.0.2](https://www.ruby-lang.org/en/)
 - [Rails v6.1.4](https://gorails.com/)
+- [RSwag](https://github.com/rswag/rswag)
 
 ### Setup
 
@@ -76,6 +77,12 @@ rails s
 
 ```sh
 rspec
+```
+
+### Generate documentation
+
+```sh
+rails rswag
 ```
 
 ### Troubleshoot
