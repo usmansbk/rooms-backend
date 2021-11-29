@@ -59,7 +59,7 @@ rails db:migrate
 bundle exec rake secret
 
 # in .env file, set to generated secret
-DEVISE_JWT_SECRET_KEY=xyx
+DEVISE_JWT_SECRET_KEY=4b6a26f98980853512cf670b372...
 ```
 
 ### Run
