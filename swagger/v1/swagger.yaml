@@ -64,6 +64,14 @@ paths:
               - email
               - password
         required: true
+  "/logout":
+    delete:
+      summary: Log out current user
+      tags:
+      - Auth
+      responses:
+        '204':
+          description: idempotent
 servers:
 - url: https://{defaultHost}
   variables:
