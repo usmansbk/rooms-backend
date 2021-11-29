@@ -12,15 +12,9 @@ This project is based on an app to book an appointment to try a motorcycle. It h
 
 [GitHub Repo](https://github.com/usmansbk/rooms-frontend)
 
-## API Endpoints
+## API Documentation
 
-`POST /login` with email and password
-
-`DELETE /logout`
-
-`POST /register` with name, email, and password
-
-[GitHub Repo](https://github.com/usmansbk/rooms_frontend)
+[Swagger](http://localhost:3000)
 
 ## Built With
 
