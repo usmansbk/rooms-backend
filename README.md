@@ -2,7 +2,7 @@
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
-> Book a room or host with yours
+> Room reservation app
 
 ![screenshot](./erd.png)
 
@@ -11,10 +11,6 @@ This project is based on an app to book an appointment to try a motorcycle. It h
 ## Frontend
 
 [GitHub Repo](https://github.com/usmansbk/rooms-frontend)
-
-## API Documentation
-
-[Swagger](http://localhost:3000)
 
 ## Built With
 
@@ -31,7 +27,7 @@ To get a local copy up and running follow these simple example steps.
 - [Rails v6.1.4](https://gorails.com/)
 - [RSwag](https://github.com/rswag/rswag)
 
-### Setup
+## Setup
 
 ```sh
 git clone https://github.com/usmansbk/rooms-backend.git
@@ -84,6 +80,10 @@ rspec
 ```sh
 rails rswag
 ```
+
+### API Documentation
+
+[Swagger](http://localhost:3000)
 
 ### Troubleshoot
 
