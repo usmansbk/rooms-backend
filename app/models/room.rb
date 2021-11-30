@@ -4,5 +4,5 @@ class Room < ApplicationRecord
   validates :size, :price, numericality: { greater_than: 0 }
 
   belongs_to :user
-  has_many :reservation
+  has_many :reservations
 end

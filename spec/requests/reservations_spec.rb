@@ -4,12 +4,7 @@ RSpec.describe 'reservations', type: :request do
   path '/reservations' do
     get('list reservations') do
       response(200, 'successful') do
-        before { create_list(:reservations, 5) }
-
-        run_test! do |response|
-          data = JSON.parse(response.body)
-          expect(data.length).to eq(5)
-        end
+        run_test!
       end
     end
 
