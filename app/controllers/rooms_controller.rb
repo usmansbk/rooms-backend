@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: :destroy
+  before_action :set_room, only: %i[show destroy]
 
   # GET /rooms
   def index
@@ -7,6 +7,8 @@ class RoomsController < ApplicationController
 
     render json: @rooms
   end
+
+  def show; end
 
   # POST /rooms
   def create
