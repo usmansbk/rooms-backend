@@ -1,9 +1,10 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[show update destroy]
+  load_and_authorize_resource
+  before_action :set_reservation, only: :destroy
 
   # GET /reservations
   def index
-    @reservations = current_user.reservations
+    @reservations = Reservation.all
 
     render json: @reservations
   end
@@ -33,6 +34,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.fetch(:reservation, {})
+    params.fetch(:reservation).permit(:nights, :check_in, :room_id)
   end
 end

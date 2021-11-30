@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show update destroy]
+  load_and_authorize_resource
+  before_action :set_room, only: %i[show destroy]
 
   # GET /rooms
   def index
@@ -8,7 +9,6 @@ class RoomsController < ApplicationController
     render json: @rooms
   end
 
-  # GET /rooms/1
   def show
     render json: @room
   end
@@ -38,6 +38,6 @@ class RoomsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def room_params
-    params.fetch(:room, {})
+    params.fetch(:room).permit(:name, :city, :price, :size, :bed_type, :facilities, :picture)
   end
 end

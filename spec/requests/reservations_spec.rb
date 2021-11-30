@@ -16,21 +16,15 @@ RSpec.describe '/reservations', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Reservation. As you add validations to Reservation, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
-  end
+  let(:valid_attributes) { skip('Add a hash of attributes valid for your model') }
 
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
+  let(:invalid_attributes) { skip('Add a hash of attributes invalid for your model') }
 
   # This should return the minimal set of values that should be in the headers
   # in order to pass any filters (e.g. authentication) defined in
   # ReservationsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
-  let(:valid_headers) do
-    {}
-  end
+  let(:valid_headers) { {} }
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -84,9 +78,7 @@ RSpec.describe '/reservations', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
+      let(:new_attributes) { skip('Add a hash of attributes valid for your model') }
 
       it 'updates the requested reservation' do
         reservation = Reservation.create! valid_attributes
