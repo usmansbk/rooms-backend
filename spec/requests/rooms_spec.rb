@@ -11,7 +11,6 @@ RSpec.describe 'rooms', type: :request do
 
     post('create room') do
       tags 'Room'
-      security [bearer_auth: []]
       consumes 'application/json'
       parameter name: :form, in: :body, required: true, schema: {
         type: :object,
@@ -48,11 +47,9 @@ RSpec.describe 'rooms', type: :request do
 
     delete('delete room') do
       tags 'Room'
-      security [bearer_auth: []]
 
       response(204, 'successful') do
         login_user
-        let(:Authorization) { "Bearer #{@user.jti}" }
         let(:id) { create(:room, user: @user).id }
         run_test!
       end
