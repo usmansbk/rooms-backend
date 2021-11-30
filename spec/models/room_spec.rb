@@ -22,7 +22,7 @@ RSpec.describe Room, type: :model do
   describe 'associations' do
     subject { build(:room) }
 
-    it { should have_many(:reservation) }
+    it { should have_many(:reservations) }
     it { should belong_to(:user) }
   end
 end

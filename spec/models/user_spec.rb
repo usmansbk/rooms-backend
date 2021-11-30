@@ -12,8 +12,8 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     subject { build(:user) }
 
-    it { should have_many(:room) }
+    it { should have_many(:rooms) }
 
-    it { should have_many(:reservation) }
+    it { should have_many(:reservations) }
   end
 end
