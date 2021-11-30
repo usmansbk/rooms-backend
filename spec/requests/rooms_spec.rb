@@ -11,24 +11,19 @@ RSpec.describe 'rooms', type: :request do
 
     post('create room') do
       tags 'Room'
-      consumes 'application/json'
-      parameter name: :form, in: :body, required: true, schema: {
+      consumes 'multipart/form-data'
+      parameter name: :room, in: :formData, required: true, schema: {
         type: :object,
-        properties: {
-          room: {
-            type: :object,
-            properties: { name: { type: :string }, city: { type: :string },
-                          bed_type: { type: :string }, facilities: { type: :string },
-                          picture: { type: :string }, price: { type: :integer },
-                          size: { type: :integer } }
-          }
-        },
+        properties: { name: { type: :string }, city: { type: :string },
+                      bed_type: { type: :string }, facilities: { type: :string },
+                      picture: { type: :binary }, price: { type: :integer },
+                      size: { type: :integer } },
         required: %w[name city bed_type facilities picture price size]
       }
 
       response(201, 'successful') do
         login_user
-        let(:form) { { room: attributes_for(:room) } }
+        let(:room) { attributes_for(:room) }
         run_test!
       end
     end
