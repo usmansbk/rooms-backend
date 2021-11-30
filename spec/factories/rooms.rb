@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :room do
-    name { Faker::Name.name }
+    name { 'Bachelor Room' }
     city { Faker::Address.city }
-    price { 10 }
+    price { 156 }
     size { 20 }
-    bed_type { Faker::Company.type }
-    facilities { Faker::House.room }
+    bed_type { 'One bed' }
+    facilities { 'TV, Telephone, Closet' }
     picture { Rack::Test::UploadedFile.new('spec/fixtures/files/room.jpg', 'image/jpeg') }
     user
   end
