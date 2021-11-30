@@ -154,7 +154,7 @@ paths:
                 facilities:
                   type: string
                 picture:
-                  type: binary
+                  type: file
                 price:
                   type: integer
                 size:

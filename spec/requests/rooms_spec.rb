@@ -16,7 +16,7 @@ RSpec.describe 'rooms', type: :request do
         type: :object,
         properties: { name: { type: :string }, city: { type: :string },
                       bed_type: { type: :string }, facilities: { type: :string },
-                      picture: { type: :binary }, price: { type: :integer },
+                      picture: { type: :file }, price: { type: :integer },
                       size: { type: :integer } },
         required: %w[name city bed_type facilities picture price size]
       }
