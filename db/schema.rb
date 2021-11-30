@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_194211) do
     t.integer "size"
     t.string "bed_type"
     t.text "facilities"
-    t.string "picture"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
