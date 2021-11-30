@@ -7,7 +7,7 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.integer :size
       t.string :bed_type
       t.text :facilities
-      t.string :picture
+      # t.string :picture
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
