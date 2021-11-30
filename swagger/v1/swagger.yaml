@@ -75,14 +75,39 @@ paths:
   "/reservations":
     get:
       summary: list reservations
+      tags:
+      - Reservation
       responses:
         '200':
           description: successful
     post:
       summary: create reservation
+      tags:
+      - Reservation
+      parameters: []
       responses:
-        '200':
+        '201':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    nights:
+                      type: string
+                    check_in:
+                      type: string
+                    room_id:
+                      type: string
+              required:
+              - nights
+              - check_in
+              - room_id
+        required: true
   "/reservations/{id}":
     parameters:
     - name: id
@@ -93,8 +118,10 @@ paths:
         type: string
     delete:
       summary: delete reservation
+      tags:
+      - Reservation
       responses:
-        '200':
+        '204':
           description: successful
   "/rooms":
     get:
@@ -108,8 +135,6 @@ paths:
       summary: create room
       tags:
       - Room
-      security:
-      - bearer_auth: []
       parameters: []
       responses:
         '201':
@@ -165,8 +190,6 @@ paths:
       summary: delete room
       tags:
       - Room
-      security:
-      - bearer_auth: []
       responses:
         '204':
           description: successful

@@ -3,7 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'reservations', type: :request do
   path '/reservations' do
     get('list reservations') do
-      tags 'Room'
+      tags 'Reservation'
       response(200, 'successful') do
         login_user
         run_test!
@@ -11,7 +11,7 @@ RSpec.describe 'reservations', type: :request do
     end
 
     post('create reservation') do
-      tags 'Room'
+      tags 'Reservation'
       consumes 'application/json'
       parameter name: :form, in: :body, required: true, schema: {
         type: :object,
@@ -36,7 +36,7 @@ RSpec.describe 'reservations', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     delete('delete reservation') do
-      tags 'Room'
+      tags 'Reservation'
       response(204, 'successful') do
         login_user
         let(:id) { create(:reservation, user: @user).id }
