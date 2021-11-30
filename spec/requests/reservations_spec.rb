@@ -4,26 +4,17 @@ RSpec.describe 'reservations', type: :request do
   path '/reservations' do
     get('list reservations') do
       response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
+        before { create_list(:reservations, 5) }
+
+        run_test! do |response|
+          data = JSON.parse(response.body)
+          expect(data.length).to eq(5)
         end
-        run_test!
       end
     end
 
     post('create reservation') do
       response(200, 'successful') do
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
         run_test!
       end
     end
@@ -37,13 +28,6 @@ RSpec.describe 'reservations', type: :request do
       response(200, 'successful') do
         let(:id) { '123' }
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
         run_test!
       end
     end
