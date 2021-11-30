@@ -72,8 +72,112 @@ paths:
       responses:
         '204':
           description: idempotent
+  "/reservations":
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      responses:
+        '200':
+          description: successful
+  "/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete reservation
+      responses:
+        '200':
+          description: successful
+  "/rooms":
+    get:
+      summary: list rooms
+      tags:
+      - Room
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create room
+      tags:
+      - Room
+      security:
+      - bearer_auth: []
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                room:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    city:
+                      type: string
+                    bed_type:
+                      type: string
+                    facilities:
+                      type: string
+                    picture:
+                      type: string
+                    price:
+                      type: integer
+                    size:
+                      type: integer
+              required:
+              - name
+              - city
+              - bed_type
+              - facilities
+              - picture
+              - price
+              - size
+        required: true
+  "/rooms/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: room details
+      tags:
+      - Room
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete room
+      tags:
+      - Room
+      security:
+      - bearer_auth: []
+      responses:
+        '204':
+          description: successful
 servers:
 - url: http://{defaultHost}
   variables:
     defaultHost:
       default: localhost:3000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

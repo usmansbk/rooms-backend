@@ -3,6 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'rooms', type: :request do
   path '/rooms' do
     get('list rooms') do
+      tags 'Room'
       response(200, 'successful') do
         run_test!
       end
@@ -43,6 +44,7 @@ RSpec.describe 'rooms', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('room details') do
+      tags 'Room'
       response(200, 'successful') do
         let(:id) { create(:room).id }
         run_test!
@@ -50,6 +52,7 @@ RSpec.describe 'rooms', type: :request do
     end
 
     delete('delete room') do
+      tags 'Room'
       security [bearer_auth: []]
 
       response(204, 'successful') do
