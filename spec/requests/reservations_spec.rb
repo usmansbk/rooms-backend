@@ -32,7 +32,6 @@ RSpec.describe 'reservations', type: :request do
   end
 
   path '/reservations/{id}' do
-    # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     delete('delete reservation') do
