@@ -24,5 +24,6 @@ RSpec.describe Room, type: :model do
 
     it { should have_many(:reservations) }
     it { should belong_to(:user) }
+    it { should have_one_attached(:picture) }
   end
 end
