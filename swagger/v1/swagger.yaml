@@ -141,27 +141,24 @@ paths:
           description: successful
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
-                room:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    city:
-                      type: string
-                    bed_type:
-                      type: string
-                    facilities:
-                      type: string
-                    picture:
-                      type: string
-                    price:
-                      type: integer
-                    size:
-                      type: integer
+                name:
+                  type: string
+                city:
+                  type: string
+                bed_type:
+                  type: string
+                facilities:
+                  type: string
+                picture:
+                  type: binary
+                price:
+                  type: integer
+                size:
+                  type: integer
               required:
               - name
               - city
