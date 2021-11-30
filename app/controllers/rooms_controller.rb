@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   load_and_authorize_resource
   before_action :set_room, only: %i[show destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   # GET /rooms
   def index
@@ -9,6 +10,7 @@ class RoomsController < ApplicationController
     render json: @rooms
   end
 
+  # GET /rooms/1
   def show
     render json: @room
   end
