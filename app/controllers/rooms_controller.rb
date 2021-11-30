@@ -8,7 +8,9 @@ class RoomsController < ApplicationController
     render json: @rooms
   end
 
-  def show; end
+  def show
+    render json: @room
+  end
 
   # POST /rooms
   def create
