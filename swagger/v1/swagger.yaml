@@ -1,0 +1,79 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/register":
+    post:
+      summary: Creates a new account
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - name
+              - email
+              - password
+        required: true
+  "/login":
+    post:
+      summary: Authenticate user
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '201':
+          description: logged in
+        '401':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - name
+              - email
+              - password
+        required: true
+  "/logout":
+    delete:
+      summary: Log out current user
+      tags:
+      - Auth
+      responses:
+        '204':
+          description: idempotent
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
