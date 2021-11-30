@@ -6,7 +6,7 @@ FactoryBot.define do
     size { 20 }
     bed_type { Faker::Company.type }
     facilities { Faker::House.room }
-    picture { Faker::Company.logo }
+    picture { Rack::Test::UploadedFile.new('spec/fixtures/files/room.jpg', 'image/jpeg') }
     user
   end
 end
