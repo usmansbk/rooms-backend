@@ -12,6 +12,10 @@ This project is based on an app to book an appointment to try a motorcycle. It h
 
 [GitHub Repo](https://github.com/usmansbk/rooms-frontend)
 
+## API
+
+[Heroku](https://quiet-island-27523.herokuapp.com/)
+
 ## Built With
 
 - Ruby on Rails
@@ -52,15 +56,6 @@ rails db:create
 
 ## Apply migration
 rails db:migrate
-```
-
-### Generate JWT Secret
-
-```sh
-bundle exec rake secret
-
-# in .env file, set to generated secret
-DEVISE_JWT_SECRET_KEY=4b6a26f98980853512cf670b372...
 ```
 
 ### Run

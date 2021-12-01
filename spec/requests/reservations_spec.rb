@@ -1,11 +1,13 @@
 require 'swagger_helper'
 
 RSpec.describe 'reservations', type: :request do
+  login_user
   path '/reservations' do
     get('list reservations') do
       tags 'Reservation'
+      security [Bearer: []]
       response(200, 'successful') do
-        login_user
+        let(:Authorization) { @token }
         run_test!
       end
     end
@@ -13,6 +15,7 @@ RSpec.describe 'reservations', type: :request do
     post('create reservation') do
       tags 'Reservation'
       consumes 'application/json'
+      security [Bearer: []]
       parameter name: :form, in: :body, required: true, schema: {
         type: :object,
         properties: {
@@ -24,7 +27,7 @@ RSpec.describe 'reservations', type: :request do
         required: %w[nights check_in room_id]
       }
       response(201, 'successful') do
-        login_user
+        let(:Authorization) { @token }
         let(:form) { { reservation: attributes_for(:reservation, room_id: create(:room).id) } }
         run_test!
       end
@@ -36,8 +39,9 @@ RSpec.describe 'reservations', type: :request do
 
     delete('delete reservation') do
       tags 'Reservation'
+      security [Bearer: []]
       response(204, 'successful') do
-        login_user
+        let(:Authorization) { @token }
         let(:id) { create(:reservation, user: @user).id }
 
         run_test!

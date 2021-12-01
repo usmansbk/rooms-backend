@@ -1,6 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'rooms', type: :request do
+  login_user
   path '/rooms' do
     get('list rooms') do
       tags 'Room'
@@ -11,6 +12,7 @@ RSpec.describe 'rooms', type: :request do
 
     post('create room') do
       tags 'Room'
+      security [Bearer: []]
       consumes 'multipart/form-data'
       parameter name: :room, in: :formData, required: true, schema: {
         type: :object,
@@ -22,7 +24,7 @@ RSpec.describe 'rooms', type: :request do
       }
 
       response(201, 'successful') do
-        login_user
+        let(:Authorization) { @token }
         let(:room) { attributes_for(:room) }
         run_test!
       end
@@ -42,9 +44,9 @@ RSpec.describe 'rooms', type: :request do
 
     delete('delete room') do
       tags 'Room'
-
+      security [Bearer: []]
       response(204, 'successful') do
-        login_user
+        let(:Authorization) { @token }
         let(:id) { create(:room, user: @user).id }
         run_test!
       end
