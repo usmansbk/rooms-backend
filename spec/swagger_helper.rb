@@ -15,10 +15,10 @@ RSpec.configure do |config|
           url: '{protocol}://{defaultHost}',
           variables: {
             defaultHost: {
-              default: 'localhost:3000'
+              default: 'polar-island-18380.herokuapp.com'
             },
             protocol: {
-              default: 'http'
+              default: 'https'
             }
           }
         }
