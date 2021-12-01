@@ -28,4 +28,16 @@ RSpec.describe 'rooms', type: :request do
       end
     end
   end
+
+  path '/rooms/{id}' do
+    parameter name: 'id', in: :path, type: :string, description: 'id'
+
+    get('room details') do
+      tags 'Room'
+      response(200, 'successful') do
+        let(:id) { create(:room).id }
+        run_test!
+      end
+    end
+  end
 end
