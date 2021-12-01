@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-  
   describe 'validations' do
     subject { build(:room) }
 
