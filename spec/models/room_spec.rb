@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
+  
   describe 'validations' do
     subject { build(:room) }
 
@@ -17,5 +18,13 @@ RSpec.describe Room, type: :model do
 
     it { should validate_numericality_of(:size) }
     it { should validate_numericality_of(:price) }
+  end
+
+  describe 'associations' do
+    subject { build(:room) }
+
+    it { should have_many(:reservations) }
+    it { should belong_to(:user) }
+    it { should have_one_attached(:picture) }
   end
 end
