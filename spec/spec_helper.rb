@@ -91,4 +91,7 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+  config.after(:suite) do
+    FileUtils.rm_rf(Rails.root.join('tmp', 'storage'))
+  end
 end

@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
     render json: @rooms
   end
 
+  # GET /rooms/1
   def show
     render json: @room
   end

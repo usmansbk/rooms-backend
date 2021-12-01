@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :reservation do
-    nights { 1 }
-    check_in { '2021-11-30' }
-    user { nil }
-    room { nil }
+    nights { rand(1...30) }
+    check_in { Faker::Date.in_date_period }
+    user
+    room
   end
 end

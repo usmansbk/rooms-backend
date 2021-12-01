@@ -72,8 +72,132 @@ paths:
       responses:
         '204':
           description: idempotent
+  "/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - Reservation
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      tags:
+      - Reservation
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    nights:
+                      type: string
+                    check_in:
+                      type: string
+                    room_id:
+                      type: string
+              required:
+              - nights
+              - check_in
+              - room_id
+        required: true
+  "/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete reservation
+      tags:
+      - Reservation
+      responses:
+        '204':
+          description: successful
+  "/rooms":
+    get:
+      summary: list rooms
+      tags:
+      - Room
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create room
+      tags:
+      - Room
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                city:
+                  type: string
+                bed_type:
+                  type: string
+                facilities:
+                  type: string
+                picture:
+                  type: file
+                price:
+                  type: integer
+                size:
+                  type: integer
+              required:
+              - name
+              - city
+              - bed_type
+              - facilities
+              - picture
+              - price
+              - size
+        required: true
+  "/rooms/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: room details
+      tags:
+      - Room
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete room
+      tags:
+      - Room
+      responses:
+        '204':
+          description: successful
 servers:
 - url: http://{defaultHost}
   variables:
     defaultHost:
       default: localhost:3000
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
