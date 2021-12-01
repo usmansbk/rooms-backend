@@ -64,11 +64,14 @@ RSpec.describe 'Auth API', type: :request do
   end
 
   path '/logout' do
+    login_user
     delete 'Log out current user' do
       tags 'Auth'
+      security [Bearer: []]
       consumes 'application/json'
 
       response '204', 'idempotent' do
+        let(:Authorization) { @token }
         run_test!
       end
     end

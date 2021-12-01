@@ -3,6 +3,20 @@ openapi: 3.0.1
 info:
   title: API V1
   version: v1
+servers:
+- url: "{protocol}://{defaultHost}"
+  variables:
+    defaultHost:
+      default: localhost:3000
+    protocol:
+      default: http
+components:
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: JWT key necessary for protected API calls
 paths:
   "/register":
     post:
@@ -69,6 +83,8 @@ paths:
       summary: Log out current user
       tags:
       - Auth
+      security:
+      - Bearer: []
       responses:
         '204':
           description: idempotent
@@ -77,6 +93,8 @@ paths:
       summary: list reservations
       tags:
       - Reservation
+      security:
+      - Bearer: []
       responses:
         '200':
           description: successful
@@ -84,6 +102,8 @@ paths:
       summary: create reservation
       tags:
       - Reservation
+      security:
+      - Bearer: []
       parameters: []
       responses:
         '201':
@@ -120,6 +140,8 @@ paths:
       summary: delete reservation
       tags:
       - Reservation
+      security:
+      - Bearer: []
       responses:
         '204':
           description: successful
@@ -135,6 +157,8 @@ paths:
       summary: create room
       tags:
       - Room
+      security:
+      - Bearer: []
       parameters: []
       responses:
         '201':
@@ -187,17 +211,8 @@ paths:
       summary: delete room
       tags:
       - Room
+      security:
+      - Bearer: []
       responses:
         '204':
           description: successful
-servers:
-- url: http://{defaultHost}
-  variables:
-    defaultHost:
-      default: localhost:3000
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
