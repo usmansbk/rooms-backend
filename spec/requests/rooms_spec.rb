@@ -39,5 +39,15 @@ RSpec.describe 'rooms', type: :request do
         run_test!
       end
     end
+
+    delete('delete room') do
+      tags 'Room'
+
+      response(204, 'successful') do
+        login_user
+        let(:id) { create(:room, user: @user).id }
+        run_test!
+      end
+    end
   end
 end
