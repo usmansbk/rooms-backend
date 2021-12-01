@@ -268,7 +268,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 6.1.4, >= 6.1.4.1)
-  rspec-rails (~> 5.0.0)
+  rspec-rails
   rswag
   rubocop (>= 1.0, < 2.0)
   shoulda-matchers (~> 5.0)
