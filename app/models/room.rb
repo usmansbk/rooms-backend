@@ -5,7 +5,5 @@ class Room < ApplicationRecord
 
   belongs_to :user
   has_many :reservations
-  has_one_attached :picture do |attachable|
-    attachable.variant :thumb, resize: '300x300'
-  end
+  has_one_attached :picture
 end

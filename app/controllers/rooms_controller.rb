@@ -4,14 +4,10 @@ class RoomsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @rooms = Room.all
-
-    render json: @rooms
+    @rooms = Room.includes(:user).all
   end
 
-  def show
-    render json: @room
-  end
+  def show; end
 
   def create
     @room = current_user.rooms.new(room_params)
