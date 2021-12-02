@@ -12,6 +12,8 @@ This project is based on an app to book an appointment to try a motorcycle. It h
 
 [GitHub Repo](https://github.com/usmansbk/rooms-frontend)
 
+[Live Link](https://microverse-rooms.netlify.app/)
+
 ## API
 
 [Heroku](https://polar-island-18380.herokuapp.com)
