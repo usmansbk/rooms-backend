@@ -14,7 +14,7 @@ RSpec.describe 'rooms', type: :request do
       tags 'Room'
       security [Bearer: []]
       consumes 'multipart/form-data'
-      parameter name: :room, in: :formData, required: true, schema: {
+      parameter name: :room, in: :formData, schema: {
         type: :object,
         properties: { name: { type: :string }, city: { type: :string },
                       bed_type: { type: :string }, facilities: { type: :string },
