@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
 
   defaults format: :json do
-    resources :reservations
-    resources :rooms
+    resources :reservations, only: [:index, :create, :destroy]
+    resources :rooms, only: [:index, :show, :create, :destroy]
   end
 end
