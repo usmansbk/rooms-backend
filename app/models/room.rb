@@ -1,4 +1,3 @@
-
 class Room < ApplicationRecord
   validates :name, :city, length: { maximum: 100 }
   validates :name, :city, :price, :size, :bed_type, :facilities, :picture, presence: true
