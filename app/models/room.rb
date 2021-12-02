@@ -1,3 +1,4 @@
+
 class Room < ApplicationRecord
   validates :name, :city, length: { maximum: 100 }
   validates :name, :city, :price, :size, :bed_type, :facilities, :picture, presence: true
@@ -5,7 +6,5 @@ class Room < ApplicationRecord
 
   belongs_to :user
   has_many :reservations
-  has_one_attached :picture do |attachable|
-    attachable.variant :thumb, resize: '300x300'
-  end
+  has_one_attached :picture
 end
