@@ -3,9 +3,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: :destroy
 
   def index
-    @reservations = Reservation.all
-
-    render json: @reservations
+    @reservations = current_user.reservations.includes(:room)
   end
 
   def create
