@@ -7,4 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user = FactoryBot.create :user, password: 'password', email: 'test@gmail.com', name: 'Test'
 
-10.times { FactoryBot.create(:room, user: user) }
+10.times do |n|
+	room = FactoryBot.create(:room, user: user)
+	FactoryBot.create(:reservation, room: room, user: user)
+end
