@@ -191,7 +191,6 @@ paths:
               - picture
               - price
               - size
-        required: true
   "/rooms/{id}":
     parameters:
     - name: id
