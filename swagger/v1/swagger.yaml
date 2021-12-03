@@ -150,6 +150,8 @@ paths:
       summary: list rooms
       tags:
       - Room
+      security:
+      - Bearer: []
       responses:
         '200':
           description: successful
@@ -203,6 +205,8 @@ paths:
       summary: room details
       tags:
       - Room
+      security:
+      - Bearer: []
       responses:
         '200':
           description: successful

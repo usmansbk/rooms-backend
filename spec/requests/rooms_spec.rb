@@ -5,7 +5,9 @@ RSpec.describe 'rooms', type: :request do
   path '/rooms' do
     get('list rooms') do
       tags 'Room'
+      security [Bearer: []]
       response(200, 'successful') do
+        let(:Authorization) { @token }
         run_test!
       end
     end
@@ -36,7 +38,9 @@ RSpec.describe 'rooms', type: :request do
 
     get('room details') do
       tags 'Room'
+      security [Bearer: []]
       response(200, 'successful') do
+        let(:Authorization) { @token }
         let(:id) { create(:room).id }
         run_test!
       end

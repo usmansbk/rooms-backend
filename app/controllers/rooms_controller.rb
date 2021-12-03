@@ -1,7 +1,6 @@
 class RoomsController < ApplicationController
   load_and_authorize_resource
   before_action :set_room, only: %i[show destroy]
-  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @rooms = Room.includes(:user).all
