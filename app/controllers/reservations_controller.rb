@@ -6,11 +6,13 @@ class ReservationsController < ApplicationController
     @reservations = current_user.reservations.includes(:room)
   end
 
+  def show; end
+
   def create
     @reservation = current_user.reservations.new(reservation_params)
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      render :show, status: :created, location: @reservation
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
