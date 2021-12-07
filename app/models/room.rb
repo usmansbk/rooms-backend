@@ -4,6 +4,6 @@ class Room < ApplicationRecord
   validates :size, :price, numericality: { only_integer: true, greater_than: 0 }
 
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   has_one_attached :picture
 end
