@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: %i[show destroy]
 
   def index
-    @rooms = Room.includes(:user).all
+    @rooms = Room.includes(:user).all.with_attached_picture
   end
 
   def show; end
@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
   private
 
   def set_room
-    @room = Room.find(params[:id])
+    @room = Room.with_attached_picture.find(params[:id])
   end
 
   def room_params
