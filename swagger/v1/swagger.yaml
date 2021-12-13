@@ -1,0 +1,221 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+servers:
+- url: "{protocol}://{defaultHost}"
+  variables:
+    defaultHost:
+      default: polar-island-18380.herokuapp.com
+    protocol:
+      default: https
+components:
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: JWT key necessary for protected API calls
+paths:
+  "/register":
+    post:
+      summary: Creates a new account
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - name
+              - email
+              - password
+        required: true
+  "/login":
+    post:
+      summary: Authenticate user
+      tags:
+      - Auth
+      parameters: []
+      responses:
+        '201':
+          description: logged in
+        '401':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - name
+              - email
+              - password
+        required: true
+  "/logout":
+    delete:
+      summary: Log out current user
+      tags:
+      - Auth
+      security:
+      - Bearer: []
+      responses:
+        '204':
+          description: idempotent
+  "/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - Reservation
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      tags:
+      - Reservation
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    nights:
+                      type: string
+                    check_in:
+                      type: string
+                    room_id:
+                      type: string
+              required:
+              - nights
+              - check_in
+              - room_id
+        required: true
+  "/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete reservation
+      tags:
+      - Reservation
+      security:
+      - Bearer: []
+      responses:
+        '204':
+          description: successful
+  "/rooms":
+    get:
+      summary: list rooms
+      tags:
+      - Room
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create room
+      tags:
+      - Room
+      security:
+      - Bearer: []
+      parameters: []
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                city:
+                  type: string
+                bed_type:
+                  type: string
+                facilities:
+                  type: string
+                picture:
+                  type: file
+                price:
+                  type: integer
+                size:
+                  type: integer
+              required:
+              - name
+              - city
+              - bed_type
+              - facilities
+              - picture
+              - price
+              - size
+  "/rooms/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: room details
+      tags:
+      - Room
+      security:
+      - Bearer: []
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete room
+      tags:
+      - Room
+      security:
+      - Bearer: []
+      responses:
+        '204':
+          description: successful
